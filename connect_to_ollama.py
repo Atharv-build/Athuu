@@ -160,4 +160,3 @@ if __name__ == '__main__':
     )
     # private_mode=False keeps your saved chats after closing the app
     webview.start(private_mode=False, storage_path='kraken_data')
- 
