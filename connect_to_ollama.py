@@ -147,12 +147,17 @@ class BackendApi:
 if __name__ == '__main__':
     api = BackendApi()
 
+    # Always use the index.html that sits next to this script (not the current working folder)
+    html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'index.html')
+    print('Loading interface from:', html_path)
+
     webview.create_window(
         title='Kraken - Local LLM',
-        url='index.html',
+        url=html_path,
         js_api=api,
         width=1200,
         height=800
     )
     # private_mode=False keeps your saved chats after closing the app
     webview.start(private_mode=False, storage_path='kraken_data')
+ 
