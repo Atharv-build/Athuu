@@ -3,6 +3,7 @@ import atexit
 import os
 import csv
 import time
+import shutil
 import threading
 from ollama import Client
 import webview
@@ -91,6 +92,19 @@ def read_gpu():
                     'vram_used': None, 'vram_total': None}
     return None
 
+# ---- Browser profile (keeps chat history) ----
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+STORAGE_DIR = os.path.join(APP_DIR, 'kraken_data')
+
+def clear_web_cache():
+    """Deletes only the cached copies of the page (so edits to index.html always show up).
+    'Local Storage' is NOT touched, so your saved chats stay."""
+    for root, dirs, _ in os.walk(STORAGE_DIR):
+        for d in list(dirs):
+            if d in ('Cache', 'Code Cache', 'GPUCache', 'DawnCache', 'GrShaderCache', 'ShaderCache'):
+                shutil.rmtree(os.path.join(root, d), ignore_errors=True)
+                dirs.remove(d)
+
 # 2. Define the Bridge API for the Frontend
 class BackendApi:
     def __init__(self):
@@ -148,15 +162,18 @@ if __name__ == '__main__':
     api = BackendApi()
 
     # Always use the index.html that sits next to this script (not the current working folder)
-    html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'index.html')
-    print('Loading interface from:', html_path)
+    html_path = os.path.join(APP_DIR, 'index.html')
+    clear_web_cache()
+    DEBUG = True  # shows the file path in the window title. Set to False once everything works
+    saved = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(html_path))) if os.path.exists(html_path) else 'FILE NOT FOUND'
+    print('Loading interface from:', html_path, '| last saved:', saved)
 
     webview.create_window(
-        title='Kraken - Local LLM',
+        title='Kraken - Local LLM' + (f'   |   {html_path}' if DEBUG else ''),
         url=html_path,
         js_api=api,
         width=1200,
         height=800
     )
     # private_mode=False keeps your saved chats after closing the app
-    webview.start(private_mode=False, storage_path='kraken_data')
+    webview.start(private_mode=False, storage_path=STORAGE_DIR)
