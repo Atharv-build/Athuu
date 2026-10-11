@@ -1,3 +1,5 @@
-2026/10/11-20:17:37.654 5010 Reusing MANIFEST C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2026/10/11-20:17:37.655 5010 Recovering log #4
-2026/10/11-20:17:37.658 5010 Reusing old log C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default\Local Storage\leveldb/000004.log 
+2026/10/11-21:30:55.618 5fc4 Reusing MANIFEST C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2026/10/11-21:30:55.620 5fc4 Recovering log #4
+2026/10/11-21:30:55.621 5fc4 Level-0 table #6: started
+2026/10/11-21:30:55.630 5fc4 Level-0 table #6: 135499 bytes OK
+2026/10/11-21:30:55.637 5fc4 Delete type=0 #4
