@@ -94,6 +94,7 @@ def read_gpu():
 
 # ---- Browser profile (keeps chat history) ----
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
+ICON_PATH = os.path.join(APP_DIR, 'logo.ico')  # window / taskbar icon
 STORAGE_DIR = os.path.join(APP_DIR, 'local_chat_data')
 OLD_STORAGE_DIR = os.path.join(APP_DIR, 'kraken_data')  # folder used under the old app name
 
@@ -114,6 +115,29 @@ def clear_web_cache():
             if d in ('Cache', 'Code Cache', 'GPUCache', 'DawnCache', 'GrShaderCache', 'ShaderCache'):
                 shutil.rmtree(os.path.join(root, d), ignore_errors=True)
                 dirs.remove(d)
+
+def apply_window_icon(title):
+    """Gives the window and taskbar button the Local Chat logo (Windows only)."""
+    if os.name != 'nt' or not os.path.exists(ICON_PATH):
+        return
+    try:
+        import ctypes
+        user32 = ctypes.windll.user32
+        hwnd = 0
+        for _ in range(50):  # wait up to ~10 seconds for the window to appear
+            hwnd = user32.FindWindowW(None, title)
+            if hwnd:
+                break
+            time.sleep(0.2)
+        if not hwnd:
+            return
+        LR_LOADFROMFILE, IMAGE_ICON, WM_SETICON = 0x10, 1, 0x80
+        for kind, size in ((0, 16), (1, 32)):  # small icon (title bar), big icon (taskbar / Alt+Tab)
+            handle = user32.LoadImageW(None, ICON_PATH, IMAGE_ICON, size, size, LR_LOADFROMFILE)
+            if handle:
+                user32.SendMessageW(hwnd, WM_SETICON, kind, handle)
+    except Exception:
+        pass
 
 # 2. Define the Bridge API for the Frontend
 class BackendApi:
@@ -179,12 +203,20 @@ if __name__ == '__main__':
     saved = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(html_path))) if os.path.exists(html_path) else 'FILE NOT FOUND'
     print('Loading interface from:', html_path, '| last saved:', saved)
 
+    win_title = 'Local Chat' + (f'   |   {html_path}' if DEBUG else '')
+    if os.name == 'nt':
+        try:  # own taskbar identity, so Windows shows our icon instead of the Python one
+            import ctypes
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('LocalChat.App')
+        except Exception:
+            pass
+
     webview.create_window(
-        title='Local Chat' + (f'   |   {html_path}' if DEBUG else ''),
+        title=win_title,
         url=html_path,
         js_api=api,
         width=1200,
         height=800
     )
     # private_mode=False keeps your saved chats after closing the app
-    webview.start(private_mode=False, storage_path=STORAGE_DIR)
+    webview.start(apply_window_icon, (win_title,), private_mode=False, storage_path=STORAGE_DIR)
