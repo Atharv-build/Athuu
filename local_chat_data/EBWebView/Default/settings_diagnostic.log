@@ -714,3 +714,6 @@
 {"logTime": "1011/160140", "level": "INFO", "message": "Preference changed: name=in_product_help.session_last_active_time, new_value=\"13436208100549161\", source=unknown"}
 {"logTime": "1011/160145", "level": "INFO", "message": "Preference changed: name=profile.observed_session_time, new_value=[object], source=unknown"}
 {"logTime": "1011/160155", "level": "INFO", "message": "PrefStore write completed: store=4, success=true"}
+{"logTime": "1011/160410", "level": "INFO", "message": "Preference changed: name=in_product_help.session_last_active_time, new_value=\"13436208239627322\", source=unknown"}
+{"logTime": "1011/160416", "level": "INFO", "message": "Preference changed: name=profile.observed_session_time, new_value=[object], source=unknown"}
+{"logTime": "1011/160426", "level": "INFO", "message": "PrefStore write completed: store=4, success=true"}
