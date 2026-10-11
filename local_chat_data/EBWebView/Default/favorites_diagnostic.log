@@ -97,3 +97,23 @@
 2026-10-11 16:00:55.476: [INFO] BookmarksLoadDropped droppedNodes=0
 2026-10-11 16:00:55.476: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
 2026-10-11 16:04:27.976: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 17:22:33.244: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-11 17:22:33.244: [INFO] Profiles total count: 1
+2026-10-11 17:22:33.245: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T16:03:59.259Z
+2026-10-11 17:22:33.245: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-11 17:22:33.245: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T16:03:59.259Z
+2026-10-11 17:22:33.245: [INFO] OnDoneLoading sync enabled: 0
+2026-10-11 17:22:33.245: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-11 17:22:33.245: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-11 17:22:33.245: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 17:28:03.633: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 17:31:10.941: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-11 17:31:10.941: [INFO] Profiles total count: 1
+2026-10-11 17:31:10.942: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T17:27:59.668Z
+2026-10-11 17:31:10.942: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-11 17:31:10.942: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T17:27:59.668Z
+2026-10-11 17:31:10.942: [INFO] OnDoneLoading sync enabled: 0
+2026-10-11 17:31:10.942: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-11 17:31:10.942: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-11 17:31:10.942: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 17:32:29.057: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1

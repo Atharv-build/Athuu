@@ -1,0 +1,647 @@
+const $ = id => document.getElementById(id);
+    const OLLAMA_URL = 'http://127.0.0.1:11434';
+    const LOGO = 'data:image/webp;base64,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';
+    document.querySelectorAll('.applogo').forEach(i => { i.src = LOGO; });
+    { const l = document.createElement('link'); l.rel = 'icon'; l.href = LOGO; document.head.appendChild(l); }
+    // One-time move of data saved under the old app name, so nothing is lost
+    ['chats', 'settings', 'theme'].forEach(k => {
+      const old = { chats: 'kraken_chats', settings: 'kraken_settings', theme: 'kraken_theme2' }[k];
+      try {
+        const v = localStorage.getItem(old);
+        if (v === null) return;
+        if (localStorage.getItem('localchat_' + k) === null) localStorage.setItem('localchat_' + k, v);
+        localStorage.removeItem(old);
+      } catch { }
+    });
+    const KEY = 'localchat_chats', ICON = '<img src="' + LOGO + '" alt="">';
+    const SPARK = '<svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="M19 16v4M17 18h4"/></svg>';
+    const SUGGESTIONS = ['Explain how a neural network learns, in simple words', 'Write a Python function that checks if a string is a palindrome', 'Help me plan a 4-week study schedule for exams'];
+
+    let chats = [], activeId = null, online = false, busy = false, abortCtl = null;
+    let gen = null, live = null; // gen = reply being generated {chatId,text,model}; live = its on-screen element
+
+    /* ---------- storage ---------- */
+    function load() {
+      try { chats = JSON.parse(localStorage.getItem(KEY)) || []; } catch { chats = []; }
+      const old = localStorage.getItem('localLLMChat'); // migrate the single chat from the old version
+      if (!chats.length && old) {
+        try { const m = JSON.parse(old); if (m.length) chats.push(newChat(m)); } catch { }
+        try { localStorage.removeItem('localLLMChat'); } catch { }
+      }
+      chats.sort((a, b) => b.updated - a.updated);
+      activeId = null; // always start on a fresh, empty chat. Old chats stay in the sidebar
+    }
+    const save = () => { try { localStorage.setItem(KEY, JSON.stringify(chats.filter(c => c.messages.length))); } catch { } };
+    const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    function newChat(messages = []) {
+      return { id: uid(), title: messages[0] ? messages[0].content.slice(0, 40) : 'New chat', messages, updated: Date.now() };
+    }
+    const current = () => chats.find(c => c.id === activeId);
+
+    /* ---------- rendering ---------- */
+    const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    function md(text) {
+      return text.split(/(```[\s\S]*?(?:```|$))/g).map(part => {
+        if (part.startsWith('```')) {
+          const lang = (part.match(/^```([\w+#.-]*)/) || [])[1] || '';
+          const code = part.replace(/^```[^\n]*\n?/, '').replace(/```$/, '').replace(/\n$/, '');
+          const ext = EXT[lang.toLowerCase()] || 'txt';
+          return `<div class="code"><div class="chead"><span>${esc(lang || 'code')}</span><span class="cbtns"><button class="cbtn" data-act="copy">Copy</button><button class="cbtn" data-act="dl" data-ext="${ext}">Download</button></span></div><pre><code>${highlight(code, lang)}</code></pre></div>`;
+        }
+        return esc(part).replace(/^\n+|\n+$/g, '').replace(/`([^`\n]+)`/g, '<code>$1</code>').replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>').replace(/^#{1,4} +(.+)(\n|$)/gm, '<div class="h">$1</div>').replace(/\n/g, '<br>');
+      }).join('');
+    }
+
+    function renderList() {
+      const q = $('search').value.trim().toLowerCase();
+      const items = chats.filter(c => c.messages.length && c.title.toLowerCase().includes(q)).sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) || b.updated - a.updated);
+      $('list').innerHTML = '';
+      if (!items.length) { $('list').innerHTML = `<div class="none">${q ? 'No chats match.' : 'Your chats will show up here.'}</div>`; return; }
+      items.forEach(c => {
+        const el = document.createElement('div');
+        el.className = 'item' + (c.id === activeId ? ' active' : '');
+        el.tabIndex = 0;
+        el.innerHTML = `<span>${esc(c.title)}</span><button class="pin${c.pinned ? ' on' : ''}" aria-label="Pin chat"><svg viewBox="0 0 24 24"><path d="M12 16v5M8 4h8M9 4v6l-3 4h12l-3-4V4"/></svg></button><button class="del" aria-label="Delete chat"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></button>`;
+        el.onclick = () => { if (activeId !== c.id) { activeId = c.id; renderAll(); } };
+        el.ondblclick = () => rename(c, el);
+        el.querySelector('.pin').onclick = e => { e.stopPropagation(); c.pinned = !c.pinned; save(); renderList(); };
+        el.onkeydown = e => { if (e.key === 'Enter') el.click(); };
+        el.querySelector('.del').onclick = e => {
+          e.stopPropagation();
+          if (gen && gen.chatId === c.id && abortCtl) abortCtl.abort();
+          chats = chats.filter(x => x.id !== c.id);
+          if (activeId === c.id) activeId = chats[0]?.id || null;
+          save(); renderAll();
+        };
+        $('list').appendChild(el);
+      });
+    }
+
+    function aiMessage(text, model, tps) {
+      const el = document.createElement('div');
+      el.className = 'msg ai';
+      el.innerHTML = `<div class="avatar">${ICON}</div><div class="body"><div class="who">${esc(model || 'Local Chat')}${tps ? ' &middot; ' + tps + ' tok/s' : ''}</div><div class="content"></div></div>`;
+      const content = el.querySelector('.content');
+      if (text) content.innerHTML = md(text);
+      return el;
+    }
+    /* ---------- code highlighting (offline, no libraries) ---------- */
+    const EXT = { python: 'py', py: 'py', javascript: 'js', js: 'js', jsx: 'jsx', typescript: 'ts', ts: 'ts', tsx: 'tsx', html: 'html', css: 'css', json: 'json', java: 'java', c: 'c', cpp: 'cpp', 'c++': 'cpp', csharp: 'cs', 'c#': 'cs', cs: 'cs', go: 'go', rust: 'rs', rs: 'rs', php: 'php', bash: 'sh', sh: 'sh', shell: 'sh', powershell: 'ps1', ps1: 'ps1', sql: 'sql', yaml: 'yml', yml: 'yml', ruby: 'rb', rb: 'rb', kotlin: 'kt', swift: 'swift', xml: 'xml', markdown: 'md', md: 'md' };
+    const KW = new Set(('abstract and as assert async await break case catch class const continue def default del do elif else enum except export extends False final finally fn for foreach from func function global goto if implements import in instanceof interface is lambda let match namespace new nil None not null of or package pass private protected public raise return self static struct super switch template this throw throws True true false try typeof undefined union unsafe use using var void volatile while with yield echo fi then done esac select insert update delete create table where join group order by limit values set into alter drop index primary key foreign references distinct having as on inner left right outer').split(' '));
+    const TYPES = new Set('int float double char bool boolean str string long short byte i8 i16 i32 i64 u8 u16 u32 u64 usize isize f32 f64 number any object list dict tuple var'.split(' '));
+    function highlight(code, lang) {
+      lang = (lang || '').toLowerCase();
+      const S = String.raw;
+      const isHtml = /^(html|xml|svg|vue)$/.test(lang), isSql = lang === 'sql';
+      const hash = /^(py|python|sh|bash|shell|zsh|yaml|yml|ruby|rb|toml|ps1|powershell|r|perl)$/.test(lang);
+      const comment = isHtml ? S`<!--[\s\S]*?(?:-->|$)` : hash ? '#.*' : isSql ? '--.*' : S`\/\/.*|\/\*[\s\S]*?(?:\*\/|$)`;
+      const str = S`"""[\s\S]*?(?:"""|$)|'''[\s\S]*?(?:'''|$)|"(?:\\.|[^"\\\n])*"?|'(?:\\.|[^'\\\n])*'?|` + '`(?:\\\\.|[^`\\\\])*`?';
+      const tag = isHtml ? S`<\/?[A-Za-z][\w:-]*|\/?>` : '(?!)';
+      const num = S`\b0x[\da-fA-F]+\b|\b\d+(?:\.\d+)?\b`;
+      const word = S`[A-Za-z_$][\w$]*`;
+      const re = new RegExp([comment, str, tag, num, word].map(p => '(' + p + ')').join('|'), 'g');
+      let out = '', last = 0, m;
+      while ((m = re.exec(code))) {
+        const t = m[0];
+        out += esc(code.slice(last, m.index));
+        let cls = '';
+        if (m[1]) cls = 'c';
+        else if (m[2]) cls = 's';
+        else if (m[3]) cls = 't';
+        else if (m[4]) cls = 'n';
+        else {
+          const w = isSql ? t.toLowerCase() : t, next = code[re.lastIndex];
+          if (KW.has(w)) cls = 'k';
+          else if (isHtml && next === '=') cls = 'a';
+          else if (next === '(') cls = 'f';
+          else if (TYPES.has(t) || /^[A-Z][a-z]/.test(t)) cls = 'y';
+        }
+        out += cls ? `<span class="tk-${cls}">${esc(t)}</span>` : esc(t);
+        last = re.lastIndex;
+      }
+      return out + esc(code.slice(last));
+    }
+
+    /* ---------- copy / save helpers ---------- */
+    async function copyText(text) {
+      try { await navigator.clipboard.writeText(text); return true; } catch { }
+      try { // fallback for desktop webviews where the clipboard API is blocked
+        const t = document.createElement('textarea');
+        t.value = text; t.style.cssText = 'position:fixed;opacity:0';
+        document.body.appendChild(t); t.select();
+        const ok = document.execCommand('copy'); t.remove(); return ok;
+      } catch { return false; }
+    }
+    // Saves through Python's "Save as" dialog when running in the desktop app, or a normal download in a browser
+    async function saveFile(name, text) {
+      if (window.pywebview && window.pywebview.api && window.pywebview.api.save_file) {
+        try { return await window.pywebview.api.save_file(name, text); } catch (e) { console.error(e); }
+      }
+      const url = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      const a = document.createElement('a');
+      a.href = url; a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+      return true;
+    }
+    function flash(el, label) {
+      const t = el.querySelector('.lbl') || el;
+      if (!t.dataset.o) t.dataset.o = t.textContent;
+      t.textContent = label;
+      clearTimeout(t._t);
+      t._t = setTimeout(() => { t.textContent = t.dataset.o; }, 1500);
+    }
+
+    // Buttons inside code blocks
+    $('chat').addEventListener('click', async e => {
+      const b = e.target.closest('.cbtn');
+      if (!b) return;
+      const code = b.closest('.code').querySelector('code').textContent;
+      if (b.dataset.act === 'copy') flash(b, (await copyText(code)) ? 'Copied' : 'Failed');
+      else if ((await saveFile('local_chat_code.' + b.dataset.ext, code)) !== false) flash(b, 'Saved');
+    });
+
+    // Buttons at the end of each reply
+    function addCopy(el, getText, regen, errOnly) {
+      const bar = document.createElement('div');
+      bar.className = 'actions';
+      const btn = (m, icon, label) => `<button class="copy" data-m="${m}"><svg viewBox="0 0 24 24">${icon}</svg><span class="lbl">${label}</span></button>`;
+      bar.innerHTML =
+        (errOnly ? '' : btn('copy', '<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/>', 'Copy') +
+          btn('dl', '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>', 'Download')) +
+        (regen ? btn('re', '<path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/>', errOnly ? 'Retry' : 'Regenerate') : '');
+      bar.onclick = async e => {
+        const b = e.target.closest('button');
+        if (!b) return;
+        if (b.dataset.m === 're') regenerate();
+        else if (b.dataset.m === 'copy') flash(b, (await copyText(getText())) ? 'Copied' : 'Failed');
+        else if ((await saveFile('local_chat_reply.md', getText())) !== false) flash(b, 'Saved');
+      };
+      el.querySelector('.body').appendChild(bar);
+    }
+    function userMessage(m, i) {
+      const el = document.createElement('div');
+      el.className = 'msg user';
+      el.innerHTML = '<div class="uact"><button class="ucopy" title="Copy prompt" aria-label="Copy prompt"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></button><button class="uedit" title="Edit prompt" aria-label="Edit prompt"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button></div><div class="body"></div>';
+      const body = el.querySelector('.body');
+      if ((m.images && m.images.length) || (m.files && m.files.length)) {
+        const row = document.createElement('div'); row.className = 'fchips';
+        (m.images || []).forEach(im => { const t = document.createElement('img'); t.src = im.data; t.alt = im.name; row.appendChild(t); });
+        (m.files || []).forEach(f => { const c = document.createElement('span'); c.className = 'fchip'; c.textContent = f.name; row.appendChild(c); });
+        body.appendChild(row);
+      }
+      if (m.content) body.appendChild(document.createTextNode(m.content));
+      const copyBtn = el.querySelector('.ucopy');
+      if (copyBtn) {
+        copyBtn.onclick = async () => {
+          const text = m.content || (m.files && m.files.map(f => f.text).join('\n\n')) || '';
+          if (!text) return;
+          const ok = await copyText(text);
+          if (ok) {
+            copyBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
+            copyBtn.style.color = 'var(--ok)';
+            copyBtn.title = 'Copied!';
+            setTimeout(() => {
+              copyBtn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>';
+              copyBtn.style.color = '';
+              copyBtn.title = 'Copy prompt';
+            }, 1500);
+          }
+        };
+      }
+      el.querySelector('.uedit').onclick = () => editMessage(el, m, i);
+      return el;
+    }
+
+    function renderChat() {
+      const chat = current(), box = $('chat');
+      box.innerHTML = ''; live = null;
+      $('title').textContent = chat && chat.messages.length ? chat.title : 'New chat';
+      if (!chat || !chat.messages.length) {
+        box.innerHTML = `<div class="empty"><img class="hero" src="${LOGO}" alt=""><span class="badge">${SPARK}Private. Runs on your computer</span><h1>What do you want to <span class="grad">create today?</span></h1><p>Ask questions, write code or plan your work. Pick a model below and start typing.</p><div class="chips"></div></div>`;
+        SUGGESTIONS.forEach(s => {
+          const b = document.createElement('button');
+          b.className = 'chip'; b.innerHTML = SPARK + '<span></span>'; b.lastChild.textContent = s;
+          b.onclick = () => { $('input').value = s; resizeInput(); updateSend(); $('input').focus(); };
+          box.querySelector('.chips').appendChild(b);
+        });
+        return;
+      }
+      const col = document.createElement('div');
+      col.className = 'col'; col.id = 'col';
+      chat.messages.forEach((m, i) => {
+        const last = i === chat.messages.length - 1;
+        if (m.role === 'user') col.appendChild(userMessage(m, i));
+        else if (m.err) { const el = aiMessage('', m.model); el.querySelector('.content').innerHTML = '<span class="err">' + (m.errText ? esc(m.errText) : 'Could not reach Ollama. Check that it is running, then try again.') + '</span>'; addCopy(el, null, true, true); col.appendChild(el); }
+        else { const el = aiMessage(m.content, m.model, m.tps); addCopy(el, () => m.content, last); col.appendChild(el); }
+      });
+      if (gen && gen.chatId === chat.id) {
+        const el = aiMessage(gen.text, gen.model);
+        live = el.querySelector('.content');
+        if (!gen.text) live.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>';
+        col.appendChild(el);
+      }
+      box.appendChild(col);
+      box.scrollTop = box.scrollHeight;
+    }
+    function renderAll() { renderList(); renderChat(); }
+
+    /* ---------- ollama connection ---------- */
+    function updateSend() {
+      const ready = online && !busy && ($('input').value.trim() || pending.length) && $('model').value;
+      $('send').disabled = !ready;
+      $('send').style.display = busy ? 'none' : 'grid';
+      $('stop').style.display = busy ? 'grid' : 'none';
+    }
+    async function checkOllama() {
+      try {
+        const res = await fetch(`${OLLAMA_URL}/api/tags`);
+        if (!res.ok) throw 0;
+        if (!online) { online = true; setStatus(true); await fetchModels(); warmUp(); }
+      } catch {
+        if (online) { online = false; warmed = ''; setStatus(false); $('model').innerHTML = '<option value="" disabled selected>Offline</option>'; }
+        else setStatus(false);
+      }
+      updateSend();
+    }
+    function setStatus(on) {
+      $('dot').classList.toggle('on', on);
+      $('status-text').textContent = on ? 'Ollama connected' : 'Ollama offline';
+    }
+    let warmed = '';
+    // An empty request makes Ollama load the model into memory ahead of the first message
+    async function warmUp() {
+      const m = $('model').value;
+      if (!online || !m || warmed === m) return;
+      warmed = m;
+      $('status-text').textContent = 'Loading model...';
+      try {
+        await fetch(`${OLLAMA_URL}/api/generate`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ model: m, keep_alive: '30m' })
+        });
+      } catch { }
+      if (online) $('status-text').textContent = 'Ollama connected';
+    }
+    async function fetchModels() {
+      try {
+        const { models = [] } = await (await fetch(`${OLLAMA_URL}/api/tags`)).json();
+        renderInstalled(models);
+        const keep = $('model').value;
+        $('model').innerHTML = '';
+        if (!models.length) { $('model').innerHTML = '<option value="" disabled selected>No models yet</option>'; return; }
+        models.forEach(m => { const o = document.createElement('option'); o.value = m.name; o.textContent = m.name; $('model').appendChild(o); });
+        $('model').value = models.find(m => m.name === keep) ? keep : models[0].name;
+        updateSend();
+      } catch (e) { console.error('Failed to fetch models', e); }
+    }
+
+    // Reads Ollama's newline-delimited JSON stream, keeping partial lines between chunks
+    async function* readNdjson(res) {
+      const reader = res.body.getReader(), dec = new TextDecoder();
+      let buf = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += dec.decode(value, { stream: true });
+        const lines = buf.split('\n');
+        buf = lines.pop();
+        for (const l of lines) if (l.trim()) { try { yield JSON.parse(l); } catch { } }
+      }
+    }
+
+    async function sendMessage() {
+      const text = $('input').value.trim(), model = $('model').value;
+      if ((!text && !pending.length) || !model || busy) return;
+      let chat = current();
+      if (!chat) { chat = newChat(); chats.unshift(chat); activeId = chat.id; }
+      if (!chat.messages.length) chat.title = (text || pending[0].name).slice(0, 40);
+      const msg = { role: 'user', content: text };
+      const images = pending.filter(a => a.kind === 'img').map(a => ({ name: a.name, data: a.data }));
+      const files = pending.filter(a => a.kind === 'txt').map(a => ({ name: a.name, text: a.data }));
+      if (images.length) msg.images = images;
+      if (files.length) msg.files = files;
+      chat.messages.push(msg);
+      pending = []; renderAtts();
+      $('input').value = ''; resizeInput();
+      run(chat, model);
+    }
+
+    // Drops the last reply (or error) and asks the model again
+    function regenerate() {
+      const chat = current(), model = $('model').value;
+      if (!chat || busy || !online || !model) return;
+      while (chat.messages.length && chat.messages[chat.messages.length - 1].role === 'assistant') chat.messages.pop();
+      if (chat.messages.length) run(chat, model);
+    }
+
+    async function run(chat, model) {
+      chat.updated = Date.now(); save();
+      // The reply is tracked by chat id, so you can switch chats while it is still generating
+      gen = { chatId: chat.id, text: '', model };
+      busy = true; abortCtl = new AbortController(); updateSend();
+      renderAll();
+
+      let failed = false, tps = 0, errText = '';
+      try {
+        const msgs = chat.messages.filter(m => !m.err).map(toApi);
+        if (settings.system.trim()) msgs.unshift({ role: 'system', content: settings.system.trim() });
+        const res = await fetch(`${OLLAMA_URL}/api/chat`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ model, messages: msgs, stream: true, keep_alive: '30m', options: { temperature: settings.temp } }),
+          signal: abortCtl.signal
+        });
+        if (!res.ok) { let d = ''; try { d = (await res.json()).error; } catch { } throw new Error(d || `HTTP ${res.status}`); }
+        for await (const data of readNdjson(res)) {
+          if (data.message?.content) {
+            gen.text += data.message.content;
+            if (live && live.isConnected) { // only paint if this chat is on screen
+              live.innerHTML = md(gen.text);
+              $('chat').scrollTop = $('chat').scrollHeight;
+            }
+          }
+          if (data.done && data.eval_duration) tps = data.eval_count / (data.eval_duration / 1e9);
+        }
+      } catch (err) {
+        if (err.name !== 'AbortError') { failed = true; errText = /Failed to fetch|NetworkError/i.test(err.message) ? '' : err.message; }
+      } finally {
+        const reply = gen.text;
+        gen = null; live = null; busy = false; abortCtl = null;
+        if (reply) chat.messages.push({ role: 'assistant', content: reply, model, tps: tps ? +tps.toFixed(1) : undefined });
+        else if (failed) chat.messages.push({ role: 'assistant', content: '', model, err: true, errText });
+        chat.updated = Date.now();
+        save(); updateSend(); renderList();
+        if (activeId === chat.id) renderChat();
+      }
+    }
+
+    /* ---------- events ---------- */
+    function resizeInput() { const t = $('input'); t.style.height = '24px'; t.style.height = Math.min(t.scrollHeight, 160) + 'px'; }
+    $('input').addEventListener('input', () => { resizeInput(); updateSend(); });
+    $('input').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!$('send').disabled) sendMessage(); } });
+    $('model').addEventListener('change', () => { updateSend(); warmUp(); });
+    $('send').onclick = sendMessage;
+    $('stop').onclick = () => abortCtl && abortCtl.abort();
+    $('search').addEventListener('input', renderList);
+    $('new-chat').onclick = () => {
+      const c = current();
+      if (!c || c.messages.length) { const n = newChat(); chats.unshift(n); activeId = n.id; }
+      renderAll(); $('input').focus();
+    };
+    $('export-btn').onclick = async () => {
+      const c = current(), label = $('export-btn').querySelector('span');
+      if (!c || !c.messages.length) return flash(label, 'Nothing to export');
+      const text = `# ${c.title}\n\n` + c.messages.map(m => `### ${m.role === 'user' ? 'You' : (m.model || 'Local Chat')}\n\n${m.content}`).join('\n\n---\n\n') + '\n';
+      const name = 'local_chat_' + (c.title.replace(/[^\w]+/g, '_').slice(0, 30) || 'chat') + '.md';
+      if ((await saveFile(name, text)) !== false) flash(label, 'Exported');
+    };
+
+    /* theme */
+    function setTheme(t) {
+      document.documentElement.dataset.theme = t;
+      $('theme-label').textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+      try { localStorage.setItem('localchat_theme', t); } catch { }
+    }
+    $('theme-btn').onclick = () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+
+    /* model download modal */
+    const openModal = () => $('modal').classList.add('on'), closeModal = () => $('modal').classList.remove('on');
+    $('models-btn').onclick = openModal;
+    $('close-modal').onclick = closeModal;
+    $('modal').onclick = e => { if (e.target === $('modal')) closeModal(); };
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    $('suggest').onclick = e => { if (e.target.tagName === 'BUTTON') $('model-name').value = e.target.textContent; };
+
+    function resetModal() {
+      $('model-name').value = ''; $('bar').style.display = $('ptext').style.display = 'none';
+      $('bar-fill').style.width = '0'; $('bar-fill').style.background = '';
+    }
+    $('pull').onclick = async () => {
+      const name = $('model-name').value.trim();
+      if (!name) return;
+      $('pull').disabled = $('model-name').disabled = true;
+      $('bar').style.display = $('ptext').style.display = 'block';
+      $('bar-fill').style.width = '0'; $('bar-fill').style.background = '';
+      $('ptext').textContent = 'Starting download...';
+      try {
+        const res = await fetch(`${OLLAMA_URL}/api/pull`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, stream: true })
+        });
+        if (!res.ok) throw new Error('pull failed');
+        for await (const d of readNdjson(res)) {
+          if (d.error) throw new Error(d.error);
+          if (d.status) {
+            let s = d.status;
+            if (d.total && d.completed) { const p = Math.round(d.completed / d.total * 100); $('bar-fill').style.width = p + '%'; s += ` (${p}%)`; }
+            $('ptext').textContent = s;
+          }
+        }
+        $('ptext').textContent = 'Download complete'; $('bar-fill').style.width = '100%';
+        await fetchModels();
+        setTimeout(() => { closeModal(); resetModal(); }, 1400);
+      } catch (e) {
+        $('ptext').textContent = 'Download failed. Check the model name and your internet connection.';
+        $('bar-fill').style.background = 'var(--danger)';
+      } finally { $('pull').disabled = $('model-name').disabled = false; }
+    };
+
+    /* ---------- settings, shortcuts ---------- */
+    let settings = { system: '', temp: 0.7 };
+    try { Object.assign(settings, JSON.parse(localStorage.getItem('localchat_settings'))); } catch { }
+    const closeSettings = () => $('settings').classList.remove('on');
+    $('settings-btn').onclick = () => {
+      $('sys').value = settings.system; $('temp').value = settings.temp; $('temp-val').textContent = settings.temp;
+      $('settings').classList.add('on');
+    };
+    $('close-settings').onclick = closeSettings;
+    $('settings').onclick = e => { if (e.target === $('settings')) closeSettings(); };
+    $('temp').oninput = () => { $('temp-val').textContent = $('temp').value; };
+    $('save-settings').onclick = () => {
+      settings = { system: $('sys').value, temp: parseFloat($('temp').value) };
+      try { localStorage.setItem('localchat_settings', JSON.stringify(settings)); } catch { }
+      closeSettings();
+    };
+    let armed = false;
+    $('clear-all').onclick = () => {
+      const b = $('clear-all');
+      if (!armed) { armed = true; b.textContent = 'Click again to confirm'; setTimeout(() => { armed = false; b.textContent = 'Delete all chats'; }, 3000); return; }
+      if (abortCtl) abortCtl.abort();
+      armed = false; b.textContent = 'Delete all chats';
+      chats = []; activeId = null; save(); renderAll(); closeSettings();
+    };
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeSettings();
+      if (!(e.ctrlKey || e.metaKey)) return;
+      if (e.key === 'n') { e.preventDefault(); $('new-chat').click(); }
+      else if (e.key === 'k') { e.preventDefault(); $('search').focus(); }
+    });
+
+    // Double-click a chat in the sidebar to rename it
+    function rename(c, el) {
+      const sp = el.querySelector('span'), inp = document.createElement('input');
+      inp.value = c.title; inp.className = 'ren';
+      sp.replaceWith(inp); inp.focus(); inp.select();
+      let fin = false;
+      const done = ok => { if (fin) return; fin = true; if (ok && inp.value.trim()) { c.title = inp.value.trim().slice(0, 60); save(); } renderAll(); };
+      inp.onkeydown = e => { if (e.key === 'Enter') done(true); if (e.key === 'Escape') done(false); };
+      inp.onblur = () => done(true);
+      inp.onclick = e => e.stopPropagation();
+    }
+
+    /* ---------- toast, attachments, voice, edit, model delete ---------- */
+    function toast(msg) {
+      const t = $('toast'); t.textContent = msg; t.classList.add('on');
+      clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('on'), 4200);
+    }
+
+    // Attachments: images go to vision models, text/code files are added to the prompt
+    let pending = [];
+    const TEXT_EXT = /\.(txt|md|py|js|ts|jsx|tsx|json|csv|html|css|java|c|cpp|h|cs|go|rs|php|sql|sh|yml|yaml|xml|log|ini|toml|rb|kt|swift)$/i;
+    const toApi = m => {
+      const o = { role: m.role, content: m.content + (m.files || []).map(f => `\n\n[Attached file: ${f.name}]\n\`\`\`\n${f.text}\n\`\`\``).join('') };
+      if (m.images && m.images.length) o.images = m.images.map(i => i.data.split(',')[1]);
+      return o;
+    };
+    function shrink(f) { // downscale images so saved chats stay small
+      return new Promise(res => {
+        const img = new Image(), url = URL.createObjectURL(f);
+        img.onload = () => {
+          const k = Math.min(1, 1024 / Math.max(img.width, img.height)), c = document.createElement('canvas');
+          c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+          URL.revokeObjectURL(url); res(c.toDataURL('image/jpeg', 0.82));
+        };
+        img.onerror = () => { URL.revokeObjectURL(url); res(null); };
+        img.src = url;
+      });
+    }
+    async function addFile(f) {
+      if (f.type.startsWith('image/')) { const d = await shrink(f); if (d) pending.push({ kind: 'img', name: f.name, data: d }); }
+      else if (TEXT_EXT.test(f.name) || f.type.startsWith('text/')) {
+        let t = await f.text();
+        if (t.length > 60000) t = t.slice(0, 60000) + '\n[...file truncated]';
+        pending.push({ kind: 'txt', name: f.name, data: t });
+      } else toast(`${f.name} can't be attached. Use images, text or code files.`);
+    }
+    function renderAtts() {
+      const box = $('atts'); box.innerHTML = '';
+      pending.forEach((a, i) => {
+        const el = document.createElement('div'); el.className = 'att';
+        if (a.kind === 'img') { const im = document.createElement('img'); im.src = a.data; el.appendChild(im); }
+        const sp = document.createElement('span'); sp.textContent = a.name; el.appendChild(sp);
+        const x = document.createElement('button'); x.textContent = '\u00d7'; x.setAttribute('aria-label', 'Remove attachment');
+        x.onclick = () => { pending.splice(i, 1); renderAtts(); updateSend(); };
+        el.appendChild(x); box.appendChild(el);
+      });
+    }
+    async function addFiles(list) { for (const f of list) await addFile(f); renderAtts(); updateSend(); }
+    $('attach').onclick = () => $('file').click();
+    $('file').onchange = e => { addFiles([...e.target.files]); e.target.value = ''; };
+    document.addEventListener('dragover', e => e.preventDefault());
+    document.addEventListener('drop', e => { e.preventDefault(); addFiles([...e.dataTransfer.files]); });
+    $('input').addEventListener('paste', e => {
+      const fs = [...(e.clipboardData?.files || [])];
+      if (fs.length) { e.preventDefault(); addFiles(fs); }
+    });
+
+    // Voice input (uses the browser speech engine when this window supports it)
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let rec = null;
+    $('mic').onclick = () => {
+      if (rec) { rec.stop(); return; }
+      if (!SR) return toast('Voice input is not available in this window. Click the message box and press Win+H to use Windows voice typing instead.');
+      rec = new SR(); rec.continuous = true; rec.interimResults = false; rec.lang = navigator.language || 'en-US';
+      rec.onresult = e => {
+        let t = '';
+        for (let i = e.resultIndex; i < e.results.length; i++) if (e.results[i].isFinal) t += e.results[i][0].transcript;
+        if (t) { const v = $('input').value; $('input').value = v + (v && !/\s$/.test(v) ? ' ' : '') + t.trim(); resizeInput(); updateSend(); }
+      };
+      rec.onerror = e => toast(/not-allowed/.test(e.error) ? 'Microphone access was blocked.' : `Voice input failed (${e.error}). Click the message box and press Win+H for Windows voice typing.`);
+      rec.onend = () => { rec = null; $('mic').classList.remove('rec'); };
+      try { rec.start(); $('mic').classList.add('rec'); } catch { rec = null; }
+    };
+
+    // Edit a message you already sent, then regenerate from that point
+    function editMessage(el, m, i) {
+      if (busy || !$('model').value) return;
+      const body = el.querySelector('.body'), ta = document.createElement('textarea'), bar = document.createElement('div');
+      body.classList.add('editing');
+      const uact = el.querySelector('.uact');
+      if (uact) uact.style.display = 'none';
+      ta.className = 'edit'; ta.value = m.content;
+      bar.className = 'ebar'; bar.innerHTML = '<button class="cancel">Cancel</button><button class="ok">Save and send</button>';
+      body.replaceChildren(ta, bar); ta.focus();
+      bar.querySelector('.cancel').onclick = renderChat;
+      bar.querySelector('.ok').onclick = () => {
+        const t = ta.value.trim(), chat = current();
+        if (!t || !chat) return;
+        chat.messages.length = i; // drop this message and everything after it
+        chat.messages.push({ ...m, content: t });
+        if (i === 0) chat.title = t.slice(0, 40);
+        run(chat, $('model').value);
+      };
+    }
+
+    // Installed models list with delete buttons (Manage models panel)
+    function renderInstalled(models) {
+      const box = $('installed'); box.innerHTML = '';
+      if (!models.length) { box.innerHTML = '<div class="none">No models installed yet.</div>'; return; }
+      models.forEach(m => {
+        const row = document.createElement('div'); row.className = 'irow';
+        row.innerHTML = '<span></span><small></small><button class="idel">Delete</button>';
+        row.children[0].textContent = m.name;
+        row.children[1].textContent = (m.size / 1e9).toFixed(1) + ' GB';
+        const b = row.lastChild; let armed = false;
+        b.onclick = async () => {
+          if (!armed) { armed = true; b.textContent = 'Confirm?'; setTimeout(() => { armed = false; b.textContent = 'Delete'; }, 3000); return; }
+          b.disabled = true; b.textContent = '...';
+          try {
+            await fetch(`${OLLAMA_URL}/api/delete`, { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: m.name, name: m.name }) });
+          } catch { toast('Could not delete the model.'); }
+          if (warmed === m.name) warmed = '';
+          fetchModels();
+        };
+        box.appendChild(row);
+      });
+    }
+
+    /* ---------- CPU / RAM / GPU meters (numbers come from Python) ---------- */
+    function setStat(id, pct, text, tip) {
+      const el = $(id);
+      if (pct == null || isNaN(pct)) { el.hidden = true; return; }
+      el.hidden = false;
+      el.querySelector('i').style.width = Math.min(100, pct) + '%';
+      el.classList.toggle('hot', pct > 85);
+      el.querySelector('.sv').textContent = text;
+      if (tip) el.title = tip;
+    }
+    let polling = false;
+    async function pollStats() {
+      const api = window.pywebview && window.pywebview.api;
+      if (!api || !api.get_stats || polling) return; // not running inside the desktop app
+      polling = true;
+      try {
+        const s = await api.get_stats();
+        if (!s || !Object.keys(s).length) return;
+        $('stats').hidden = false;
+        setStat('st-cpu', s.cpu, Math.round(s.cpu) + '%');
+        setStat('st-ram', s.ram_total ? s.ram_used / s.ram_total * 100 : null, s.ram_used?.toFixed(1) + ' / ' + Math.round(s.ram_total) + ' GB');
+        setStat('st-gpu', s.gpu, Math.round(s.gpu) + '%', s.gpu_name);
+        setStat('st-vram', s.vram_total ? s.vram_used / s.vram_total * 100 : null, s.vram_used?.toFixed(1) + ' / ' + s.vram_total?.toFixed(0) + ' GB', s.gpu_name);
+      } catch (e) { console.error(e); }
+      finally { polling = false; }
+    }
+    setInterval(pollStats, 1500);
+
+    /* ---------- start ---------- */
+    (function init() {
+      let t = 'light';
+      try { t = localStorage.getItem('localchat_theme') || 'light'; } catch { }
+      setTheme(t);
+      load(); renderAll();
+      checkOllama();
+      setInterval(checkOllama, 5000);
+    })();
+
