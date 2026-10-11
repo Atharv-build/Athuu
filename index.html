@@ -1111,21 +1111,38 @@
       font-size: .78rem
     }
 
-    .uedit {
+    .uact {
       align-self: center;
-      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 2px;
       opacity: 0;
-      padding: 6px;
-      border-radius: 8px
+      transition: opacity .15s ease
     }
 
-    .msg:hover .uedit,
-    .uedit:focus-visible {
+    .msg:hover .uact,
+    .uact:focus-within {
       opacity: 1
     }
 
-    .uedit:hover {
-      color: var(--accent)
+    .msg.user:has(.body.editing) .uact {
+      display: none
+    }
+
+    .uedit,
+    .ucopy {
+      color: var(--muted);
+      padding: 6px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      transition: color .15s, background .15s
+    }
+
+    .uedit:hover,
+    .ucopy:hover {
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 10%, transparent)
     }
 
     .msg.user .body.editing {
@@ -1379,7 +1396,8 @@
       <p>Enter a model name from the Ollama library. It downloads to this computer.</p>
       <input class="field" id="model-name" placeholder="e.g. llama3.2">
       <div class="suggest" id="suggest">
-        <button>llama3.2</button><button>qwen2.5</button><button>mistral</button><button>gemma2</button></div>
+        <button>llama3.2</button><button>qwen2.5</button><button>mistral</button><button>gemma2</button>
+      </div>
       <button class="pull" id="pull">Download model</button>
       <div class="bar" id="bar">
         <div id="bar-fill"></div>
@@ -1595,7 +1613,7 @@
     function userMessage(m, i) {
       const el = document.createElement('div');
       el.className = 'msg user';
-      el.innerHTML = '<button class="uedit" aria-label="Edit message"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button><div class="body"></div>';
+      el.innerHTML = '<div class="uact"><button class="ucopy" title="Copy prompt" aria-label="Copy prompt"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></button><button class="uedit" title="Edit prompt" aria-label="Edit prompt"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button></div><div class="body"></div>';
       const body = el.querySelector('.body');
       if ((m.images && m.images.length) || (m.files && m.files.length)) {
         const row = document.createElement('div'); row.className = 'fchips';
@@ -1604,6 +1622,24 @@
         body.appendChild(row);
       }
       if (m.content) body.appendChild(document.createTextNode(m.content));
+      const copyBtn = el.querySelector('.ucopy');
+      if (copyBtn) {
+        copyBtn.onclick = async () => {
+          const text = m.content || (m.files && m.files.map(f => f.text).join('\n\n')) || '';
+          if (!text) return;
+          const ok = await copyText(text);
+          if (ok) {
+            copyBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
+            copyBtn.style.color = 'var(--ok)';
+            copyBtn.title = 'Copied!';
+            setTimeout(() => {
+              copyBtn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>';
+              copyBtn.style.color = '';
+              copyBtn.title = 'Copy prompt';
+            }, 1500);
+          }
+        };
+      }
       el.querySelector('.uedit').onclick = () => editMessage(el, m, i);
       return el;
     }
@@ -1963,6 +1999,8 @@
       if (busy || !$('model').value) return;
       const body = el.querySelector('.body'), ta = document.createElement('textarea'), bar = document.createElement('div');
       body.classList.add('editing');
+      const uact = el.querySelector('.uact');
+      if (uact) uact.style.display = 'none';
       ta.className = 'edit'; ta.value = m.content;
       bar.className = 'ebar'; bar.innerHTML = '<button class="cancel">Cancel</button><button class="ok">Save and send</button>';
       body.replaceChildren(ta, bar); ta.focus();
