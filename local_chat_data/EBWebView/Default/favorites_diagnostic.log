@@ -1,0 +1,89 @@
+2026-10-09 01:53:22.838: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 01:53:22.838: [INFO] Profiles total count: 1
+2026-10-09 01:53:22.838: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=null
+2026-10-09 01:53:22.838: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 01:53:22.838: [INFO] OnDoneLoading sync enabled: 0
+2026-10-09 01:53:22.838: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-09 01:53:22.838: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-09 01:53:22.838: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 01:55:05.031: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 01:55:11.562: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 01:55:11.562: [INFO] Profiles total count: 1
+2026-10-09 01:55:11.562: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T01:53:22.921Z
+2026-10-09 01:55:11.562: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 01:55:11.562: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T01:53:22.921Z
+2026-10-09 01:55:11.562: [INFO] OnDoneLoading sync enabled: 0
+2026-10-09 01:55:11.562: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-09 01:55:11.562: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-09 01:55:11.562: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 01:55:25.257: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 02:05:56.011: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 02:05:56.011: [INFO] Profiles total count: 1
+2026-10-09 02:05:56.011: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T01:55:11.615Z
+2026-10-09 02:05:56.011: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 02:05:56.011: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T01:55:11.615Z
+2026-10-09 02:05:56.011: [INFO] OnDoneLoading sync enabled: 0
+2026-10-09 02:05:56.011: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-09 02:05:56.011: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-09 02:05:56.011: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 02:06:40.464: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 06:04:49.997: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 06:04:49.997: [INFO] Profiles total count: 1
+2026-10-09 06:04:49.997: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T02:05:56.070Z
+2026-10-09 06:04:49.997: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 06:04:49.997: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T02:05:56.070Z
+2026-10-09 06:04:49.997: [INFO] OnDoneLoading sync enabled: 0
+2026-10-09 06:04:49.997: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-09 06:04:49.997: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-09 06:04:49.997: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 06:08:37.438: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 06:14:01.501: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 06:14:01.501: [INFO] Profiles total count: 1
+2026-10-09 06:14:01.501: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T06:07:51.338Z
+2026-10-09 06:14:01.501: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-09 06:14:01.501: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T06:07:51.338Z
+2026-10-09 06:14:01.501: [INFO] OnDoneLoading sync enabled: 0
+2026-10-09 06:14:01.501: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-09 06:14:01.501: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-09 06:14:01.501: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 06:18:51.228: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-10 06:22:13.020: [INFO] CurrentProfilePath: C:\DESKTOP\Athuu\kraken_data\EBWebView\Default
+2026-10-10 06:22:13.020: [INFO] Profiles total count: 1
+2026-10-10 06:22:13.021: [INFO] Profile: name=Profile 1 path=C:\DESKTOP\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T06:15:15.633Z
+2026-10-10 06:22:13.021: [INFO] LastUsedProfileDir: C:\DESKTOP\Athuu\kraken_data\EBWebView\Default
+2026-10-10 06:22:13.021: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\DESKTOP\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-09T06:15:15.633Z
+2026-10-10 06:22:13.021: [INFO] OnDoneLoading sync enabled: 0
+2026-10-10 06:22:13.021: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-10 06:22:13.021: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-10 06:22:13.021: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-10 06:26:25.893: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 09:34:40.998: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-11 09:34:40.998: [INFO] Profiles total count: 1
+2026-10-11 09:34:40.999: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-10T06:23:19.010Z
+2026-10-11 09:34:40.999: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default
+2026-10-11 09:34:40.999: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\kraken_data\EBWebView\Default lastActive=2026-10-10T06:23:19.010Z
+2026-10-11 09:34:41.000: [INFO] OnDoneLoading sync enabled: 0
+2026-10-11 09:34:41.000: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-11 09:34:41.000: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-11 09:34:41.000: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 09:41:12.847: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 14:45:53.452: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-11 14:45:53.452: [INFO] Profiles total count: 1
+2026-10-11 14:45:53.452: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T09:41:06.541Z
+2026-10-11 14:45:53.452: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-11 14:45:53.452: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T09:41:06.541Z
+2026-10-11 14:45:53.452: [INFO] OnDoneLoading sync enabled: 0
+2026-10-11 14:45:53.452: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-11 14:45:53.452: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-11 14:45:53.452: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 14:46:49.023: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 14:47:37.600: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-11 14:47:37.600: [INFO] Profiles total count: 1
+2026-10-11 14:47:37.601: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T14:45:53.521Z
+2026-10-11 14:47:37.601: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-11 14:47:37.601: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T14:45:53.521Z
+2026-10-11 14:47:37.601: [INFO] OnDoneLoading sync enabled: 0
+2026-10-11 14:47:37.601: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-11 14:47:37.601: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-11 14:47:37.601: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-11 14:51:11.236: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1

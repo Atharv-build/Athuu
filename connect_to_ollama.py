@@ -94,7 +94,17 @@ def read_gpu():
 
 # ---- Browser profile (keeps chat history) ----
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
-STORAGE_DIR = os.path.join(APP_DIR, 'kraken_data')
+STORAGE_DIR = os.path.join(APP_DIR, 'local_chat_data')
+OLD_STORAGE_DIR = os.path.join(APP_DIR, 'kraken_data')  # folder used under the old app name
+
+def migrate_storage():
+    """Moves the old profile folder to the new name so saved chats and settings are kept."""
+    global STORAGE_DIR
+    if os.path.isdir(OLD_STORAGE_DIR) and not os.path.exists(STORAGE_DIR):
+        try:
+            os.rename(OLD_STORAGE_DIR, STORAGE_DIR)
+        except OSError:
+            STORAGE_DIR = OLD_STORAGE_DIR  # could not move it, keep using the old folder
 
 def clear_web_cache():
     """Deletes only the cached copies of the page (so edits to index.html always show up).
@@ -163,13 +173,14 @@ if __name__ == '__main__':
 
     # Always use the index.html that sits next to this script (not the current working folder)
     html_path = os.path.join(APP_DIR, 'index.html')
+    migrate_storage()
     clear_web_cache()
     DEBUG = True  # shows the file path in the window title. Set to False once everything works
     saved = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(html_path))) if os.path.exists(html_path) else 'FILE NOT FOUND'
     print('Loading interface from:', html_path, '| last saved:', saved)
 
     webview.create_window(
-        title='Kraken - Local LLM' + (f'   |   {html_path}' if DEBUG else ''),
+        title='Local Chat' + (f'   |   {html_path}' if DEBUG else ''),
         url=html_path,
         js_api=api,
         width=1200,

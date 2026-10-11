@@ -1,0 +1,66 @@
+0:06:32 Tab1 RenderProcessGone
+0:06:32 Microsoft.UnloadController.ClearUnloadState
+0:06:32 Microsoft.Shutdown.TabStripModel.RunUnloadListenerBeforeClosing_false
+0:06:32 Microsoft.Shutdown.TabStripModel.InternalCloseTabsImpl_ClosedAll
+0:06:32 Microsoft.Shutdown.TabStripModel.SendDetachWebContentsNotifications
+0:06:32 Microsoft.UnloadController.ClearUnloadState
+0:06:32 Browser1 Close Tab1 at 0
+0:06:32 Tab1 WebContentsDestroyed
+0:06:32 Microsoft.Shutdown.OnWindowClosing
+0:06:32 Microsoft.UnloadController.IsUnclosableApp_IsNotWebApp
+0:06:32 Microsoft.UnloadController.HasCompletedUnloadProcessing_True
+0:06:32 Microsoft.Shutdown.OnWindowClosing_MaybeClearBrowsingDataOnExit
+0:06:32 Microsoft.Shutdown.OnWindowClosing_ClearBrowsingDataOnExitNotInProgress
+0:06:32 Microsoft.Shutdown.OnWindowClosingPostClearBrowsingData_NoBrowsingDataCleared
+0:06:32 Widget Closed: WebView2MinimalFrame
+0:06:32 Microsoft.UnloadController.TabStripEmpty
+0:06:32 Widget Closed: WebView2MinimalFrame
+0:06:32 Microsoft.UnloadController.HasCompletedUnloadProcessing_True
+0:06:32 Microsoft.Shutdown.OnWindowClosing
+0:06:32 Microsoft.Shutdown.OnWindowClosing_DeleteScheduled
+0:06:32 Microsoft.Last_Browser_Removed
+0:06:32 Widget Closed: WebView2MinimalFrame
+0:06:32 Microsoft.Shutdown.ShutdownIfNoBrowsers
+0:06:32 Microsoft.Shutdown.SetTryingToQuit_Quitting
+0:06:32 Microsoft.Shutdown.NotifyAppTerminating
+0:06:32 Microsoft.Shutdown.OnAppExiting
+0:06:32 Microsoft.Shutdown.HandleAppExitingForPlatform_Aura
+0:06:32 Microsoft.Shutdown.HandleAppExitingForPlatform_Aura.NotificationUIManager_StartShutdown
+0:06:32 Microsoft.Shutdown.HandleAppExitingForPlatform_Aura.CloseAllSecondaryWidgets
+0:06:32 Shutdown
+0:00:00 Startup
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpEphemeralProfiles
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpDeletedProfiles
+0:00:00 Microsoft.NewBrowser_Popup
+0:00:00 Microsoft.BrowserList.AddBrowser
+0:00:00 Browser1 Insert active Tab1 at 0
+0:00:00 Tab1 StartNav1 #auto_toplevel
+0:00:00 Tab1 StartNav2 #typed
+0:00:00 Tab1 FinishNav1
+0:00:00 Tab1 PageLoad
+0:00:00 Tab1 FinishNav2
+0:00:00 Tab1 PageLoad
+0:00:09 Memory Pressure: Moderate
+0:00:19 Memory Pressure: Moderate
+0:00:29 Memory Pressure: None
+0:00:39 Memory Pressure: Moderate
+0:00:44 Memory Pressure: None
+0:00:49 Memory Pressure: Moderate
+0:00:54 Memory Pressure: None
+0:00:55 Microsoft.Shutdown.OnWindowClosing
+0:00:00 Startup
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpEphemeralProfiles
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpDeletedProfiles
+0:00:00 Microsoft.NewBrowser_Popup
+0:00:00 Microsoft.BrowserList.AddBrowser
+0:00:00 Browser1 Insert active Tab1 at 0
+0:00:00 Tab1 StartNav1 #auto_toplevel
+0:00:00 Tab1 StartNav2 #typed
+0:00:00 Tab1 FinishNav1
+0:00:00 Tab1 PageLoad
+0:00:00 Tab1 FinishNav2
+0:00:00 Tab1 PageLoad
+0:00:04 Memory Pressure: Moderate
+0:00:15 Memory Pressure: Moderate
+0:00:20 Memory Pressure: None
+0:03:33 Microsoft.Shutdown.OnWindowClosing
