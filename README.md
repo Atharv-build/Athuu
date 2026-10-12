@@ -6,10 +6,9 @@
   <p><strong>A polished Windows desktop chat client for local Ollama models.</strong></p>
 
   <p>
-    <img alt="Python 3.10+" src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white">
     <img alt="Platform Windows" src="https://img.shields.io/badge/Platform-Windows-0078D4?logo=windows&logoColor=white">
-    <img alt="Powered by Ollama" src="https://img.shields.io/badge/
-    
+    <img alt="Powered by Ollama" src="https://img.shields.io/badge/Powered%20by-Ollama-111827">
+    <img alt="Local first" src="https://img.shields.io/badge/Privacy-Local%20first-16A34A">
   </p>
 </div>
 
