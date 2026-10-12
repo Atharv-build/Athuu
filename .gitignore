@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local app/runtime state
+local_chat_data/
+kraken_data/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# OS metadata
+.DS_Store
+Thumbs.db
