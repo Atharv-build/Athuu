@@ -117,3 +117,32 @@
 2026-10-11 17:31:10.942: [INFO] BookmarksLoadDropped droppedNodes=0
 2026-10-11 17:31:10.942: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
 2026-10-11 17:32:29.057: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-12 04:36:07.510: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-12 04:36:07.510: [INFO] Profiles total count: 1
+2026-10-12 04:36:07.511: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T17:31:11.007Z
+2026-10-12 04:36:07.511: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-12 04:36:07.511: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-11T17:31:11.007Z
+2026-10-12 04:36:07.511: [INFO] OnDoneLoading sync enabled: 0
+2026-10-12 04:36:07.511: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-12 04:36:07.511: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-12 04:36:07.511: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-12 05:02:37.101: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-12 05:44:03.210: [INFO] CurrentProfilePath: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-12 05:44:03.210: [INFO] Profiles total count: 1
+2026-10-12 05:44:03.210: [INFO] Profile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-12T04:36:07.586Z
+2026-10-12 05:44:03.210: [INFO] LastUsedProfileDir: C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-12 05:44:03.210: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-12T04:36:07.586Z
+2026-10-12 05:44:03.210: [INFO] OnDoneLoading sync enabled: 0
+2026-10-12 05:44:03.210: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-12 05:44:03.210: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-12 05:44:03.210: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-12 06:13:27.652: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-13 04:17:01.265: [INFO] CurrentProfilePath: c:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-13 04:17:01.265: [INFO] Profiles total count: 1
+2026-10-13 04:17:01.265: [INFO] Profile: name=Profile 1 path=c:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-12T06:13:27.312Z
+2026-10-13 04:17:01.265: [INFO] LastUsedProfileDir: c:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default
+2026-10-13 04:17:01.265: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=c:\Users\athar\OneDrive\Desktop\Athuu\local_chat_data\EBWebView\Default lastActive=2026-10-12T06:13:27.312Z
+2026-10-13 04:17:01.266: [INFO] OnDoneLoading sync enabled: 0
+2026-10-13 04:17:01.266: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-13 04:17:01.266: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-13 04:17:01.266: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1

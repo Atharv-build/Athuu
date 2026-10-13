@@ -199,7 +199,7 @@ if __name__ == '__main__':
     html_path = os.path.join(APP_DIR, 'index.html')
     migrate_storage()
     clear_web_cache()
-    DEBUG = True  # shows the file path in the window title. Set to False once everything works
+    DEBUG = False  # shows the file path in the window title. Set to False once everything works
     saved = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(html_path))) if os.path.exists(html_path) else 'FILE NOT FOUND'
     print('Loading interface from:', html_path, '| last saved:', saved)
 
